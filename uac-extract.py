@@ -29,10 +29,11 @@ controls = {"0x00000001":{"ADS_UF_SCRIPT":"The logon script is executed."},
 
 uac = sys.argv[1]
 pad = 40 
-print(f'{"Name":<{pad}} {"Value":15} {"Description":}')
-print(f'{"---------":<{pad}} {"----------":15} {"----------":}')
+print(f'{"Name":<{pad}} {"Value":20} {"Description":}')
+print(f'{"---------":<{pad}} {"----------":20} {"----------":}')
 for i in controls.keys():
     if int(i, 16) & int(uac):
         for k,v in controls.get(i).items():
-            print(f'{k:<{pad}} {i:15} {v}')
+            value = i+ " (" + str(int(i,16)) + ")"
+            print(f'{k:<{pad}} {value:20} {v}')
 
